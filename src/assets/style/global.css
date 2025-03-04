@@ -1,26 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
+.htc-responsive {
+	width: 100% !important;
+}
+
 @media (min-width: 576px) {
 	.htc-responsive {
-		width: 100% !important;;
+		width: 100% !important;
 	}
 }
 
 @media (min-width: 768px) {
 	.htc-responsive {
-		width: 100% !important;; 
+		width: 60% !important;
 	}
 }
 
 @media (min-width: 992px) {
 	.htc-responsive {
-		width: 100% !important;;
+		width: 50% !important;
 	}
 }
 
 @media (min-width: 1200px) {
 	.htc-responsive {
-		width: 100% !important;;
+		width: 40% !important;
+	}
+}
+
+@media (min-width: 1400px) {
+	.htc-responsive {
+		width: 30% !important;
 	}
 }
 
