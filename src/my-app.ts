@@ -7,7 +7,6 @@ export class MyApp {
 		{ id: "1", name: "Bootstrap" },
 		{ id: "2", name: "React.js" },
 		{ id: "3", name: "Vue.js" },
-		{ id: "4", name: "Next.js" },
 	];
 	selectedTechnologies: string[] = ["1", "3"];
 }
