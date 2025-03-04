@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Aurelia 2 with CoreUI - Booststrap</title>
+	</head>
+	<body>
+		<div class="vh-100 container-fluid overflow-hidden pb-5">
+			<div class="row h-100">
+				<div
+					class="px-3 px-md-4 htc-navbar-top col-12 d-flex contextualMenu justify-content-between align-items-center"
+				>
+					<div class="d-flex gap-2 align-items-center">
+						<div class="dropdown d-md-none">
+							<button
+								class="btn btn-transparent px-0"
+								type="button"
+								data-coreui-toggle="dropdown"
+								aria-expanded="false"
+							>
+								<i class="bi bi-list text-white fs-1"></i>
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<button class="dropdown-item" type="button">
+										User Inbox
+									</button>
+								</li>
+								<li>
+									<button class="dropdown-item" type="button">
+										Account Inbox
+									</button>
+								</li>
+								<li>
+									<button class="dropdown-item" type="button">
+										Create PRD Form
+									</button>
+								</li>
+								<li>
+									<button class="dropdown-item" type="button">
+										Create Advance Form
+									</button>
+								</li>
+								<li>
+									<button class="dropdown-item" type="button">
+										Create Expense Form
+									</button>
+								</li>
+								<li>
+									<button class="dropdown-item" type="button">
+										Manage Master
+									</button>
+								</li>
+							</ul>
+						</div>
+						<span class="text-white fs-5 fw-bold"
+							>HTC - Expense</span
+						>
+					</div>
+
+					<div class="d-flex align-items-center gap-2">
+						<i class="bi bi-person-fill fs-3 text-white"></i>
+						<span class="text-white fs-6">Jirakit Thinkum</span>
+					</div>
+				</div>
+				<div
+					class="htc-navbar-side col-md-4 col-lg-3 col-xxl-2 d-none d-md-block"
+				>
+					<div class="nav flex-column mt-3">
+						<a class="nav-link" href="#"
+							><i class="bi bi-briefcase-fill"></i>User Inbox</a
+						>
+						<hr />
+						<a class="nav-link" href="#"
+							><i class="bi bi-briefcase-fill"></i>Account
+							Inbox</a
+						>
+						<hr />
+						<a class="nav-link" href="#"
+							><i class="bi bi-plus-lg"></i>Create PRD Form</a
+						>
+						<hr />
+						<a class="nav-link" href="#"
+							><i class="bi bi-plus-lg"></i>Create Advance Form</a
+						>
+						<hr />
+						<a class="nav-link" href="#"
+							><i class="bi bi-plus-lg"></i>Create Expense Form</a
+						>
+						<hr />
+						<a class="nav-link" href="#"
+							><i class="bi bi-gear-fill"></i>Manage Master</a
+						>
+						<hr />
+					</div>
+				</div>
+				<div
+					class="htc-body d-flex flex-column gap-3 col-sm-12 col-md-8 col-lg-9 col-xxl-10 h-100 pt-3 px-4 overflow-y-scroll"
+				>
+					<div class="card shadow-sm">
+						<div class="card-body">
+							<div class="mb-3">
+								<span class="fw-bold h5">Basic Form</span>
+							</div>
+							<div class="col-12 col-sm-11 col-md-10 col-lg-8 col-xl-6 col-xxl-4">
+								<div class="mb-3">
+									<label
+										for="exampleFormControlInput1"
+										class="form-label"
+										>Email address</label
+									>
+									<input
+										type="email"
+										class="form-control"
+										id="exampleFormControlInput1"
+										placeholder="name@example.com"
+									/>
+								</div>
+								<div class="mb-3">
+									<label
+										for="exampleFormControlTextarea1"
+										class="form-label"
+										>Example textarea</label
+									>
+									<textarea
+										class="form-control"
+										id="exampleFormControlTextarea1"
+										rows="3"
+									></textarea>
+								</div>
+								<div>
+									<label for="basic-url" class="form-label"
+										>Your vanity URL</label
+									>
+									<div class="input-group">
+										<span
+											class="input-group-text"
+											id="basic-addon3"
+											>https://example.com/users/</span
+										>
+										<input
+											type="text"
+											class="form-control"
+											id="basic-url"
+											aria-describedby="basic-addon3"
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card shadow-sm">
+						<div class="card-body">
+							<div class="mb-3">
+								<span class="fw-bold h5"
+									>Multi Select With Search</span
+								>
+							</div>
+							<div class="col-9 col-sm-8 col-md-7 col-lg-5 col-xl-4 col-xxl-3">
+								<select
+									class="form-multi-select"
+									id="ms1"
+									multiple
+									data-coreui-search="global"
+								>
+									<option value="0">Angular</option>
+									<option value="1">Bootstrap</option>
+									<option value="2">React.js</option>
+									<option value="3">Vue.js</option>
+									<optgroup label="backend">
+										<option value="4">Django</option>
+										<option value="5">Laravel</option>
+										<option value="6">Node.js</option>
+									</optgroup>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="card shadow-sm">
+						<div class="card-body">
+							<div class="mb-3">
+								<span class="fw-bold h5"
+									>Checkbox, Radio, Switch</span
+								>
+							</div>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value=""
+									id="flexCheckDefault"
+								/>
+								<label
+									class="form-check-label"
+									for="flexCheckDefault"
+								>
+									Default checkbox
+								</label>
+							</div>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="radio"
+									name="flexRadioDefault"
+									id="flexRadioDefault1"
+								/>
+								<label
+									class="form-check-label"
+									for="flexRadioDefault1"
+								>
+									Default radio
+								</label>
+							</div>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="radio"
+									name="flexRadioDefault"
+									id="flexRadioDefault2"
+								/>
+								<label
+									class="form-check-label"
+									for="flexRadioDefault2"
+								>
+									Default radio
+								</label>
+							</div>
+							<div class="form-check form-switch">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									role="switch"
+									id="flexSwitchCheckDefault"
+								/>
+								<label
+									class="form-check-label"
+									for="flexSwitchCheckDefault"
+									>Default switch checkbox input</label
+								>
+							</div>
+						</div>
+					</div>
+					<div class="card shadow-sm">
+						<div class="card-body">
+							<div class="col-12 col-sm-11 col-md-10 col-lg-8 col-xl-6 col-xxl-4">
+								<div class="mb-3">
+									<span class="fw-bold h5"
+										>Datetime Picker, Time Picker</span
+									>
+								</div>
+								<label class="form-label">Date Only</label>
+								<div
+									class="mb-3 col-5"
+									data-coreui-locale="en-US"
+									data-coreui-toggle="date-picker"
+									data-coreui-footer="true"
+								></div>
+								<label class="form-label">Month Only</label>
+								<div
+									class="mb-3 col-5"
+									data-coreui-locale="en-US"
+									data-coreui-toggle="date-picker"
+									data-coreui-selection-type="month"
+								></div>
+								<label class="form-label">Date with Time</label>
+								<div class="mb-3 col-8
+								data-coreui-locale="en-US"
+								data-coreui-timepicker="true"
+								data-coreui-toggle="date-picker" >
+							</div>
+							<label class="form-label">Date Range Only</label>
+							<div
+								class="mb-3 col-8"
+								data-coreui-locale="en-US"
+								data-coreui-toggle="date-range-picker"
+								data-coreui-footer="true"
+							></div>
+							<label class="form-label"
+								>Date Range Month Only</label
+							>
+							<div
+								class="mb-3 col-8"
+								data-coreui-locale="en-US"
+								data-coreui-toggle="date-range-picker"
+								data-coreui-selection-type="month"
+							></div>
+							<label class="form-label"
+								>Date Range with Time</label
+							>
+							<div
+								class="mb-3"
+								data-coreui-locale="en-US"
+								data-coreui-timepicker="true"
+								data-coreui-toggle="date-range-picker"
+							></div>
+							<label class="form-label">Time Picker</label>
+							<div
+								class="time-picker col-5"
+								data-coreui-locale="en-US"
+								data-coreui-toggle="time-picker"
+							></div>
+						</div>
+					</div>
+				</div>
+				<div class="card shadow-sm mb-5">
+					<div class="card-body">
+						<div class="mb-3">
+							<span class="fw-bold h5">Modal, Offcanvas</span>
+						</div>
+						<div class="mb-3">
+							<!-- Button trigger modal -->
+							<button
+								type="button"
+								class="btn btn-primary"
+								data-coreui-toggle="modal"
+								data-coreui-target="#exampleModal"
+							>
+								Top Modal
+							</button>
+
+							<!-- Modal -->
+							<div
+								class="modal fade"
+								id="exampleModal"
+								tabindex="-1"
+								aria-labelledby="exampleModalLabel"
+								aria-hidden="true"
+							>
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5
+												class="modal-title"
+												id="exampleModalLabel"
+											>
+												Modal title
+											</h5>
+											<button
+												type="button"
+												class="btn-close"
+												data-coreui-dismiss="modal"
+												aria-label="Close"
+											></button>
+										</div>
+										<div class="modal-body">...</div>
+										<div class="modal-footer">
+											<button
+												type="button"
+												class="btn btn-secondary"
+												data-coreui-dismiss="modal"
+											>
+												Close
+											</button>
+											<button
+												type="button"
+												class="btn btn-primary"
+											>
+												Save changes
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<!-- Button trigger modal -->
+							<button
+								type="button"
+								class="btn btn-primary"
+								data-coreui-toggle="modal"
+								data-coreui-target="#exampleModal2"
+							>
+								Vertical Center, Scrollable modal
+							</button>
+
+							<!-- Modal -->
+							<div
+								class="modal fade"
+								id="exampleModal2"
+								tabindex="-1"
+								aria-labelledby="exampleModalLabel2"
+								aria-hidden="true"
+							>
+								<div
+									class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+								>
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5
+												class="modal-title"
+												id="exampleModalLabel2"
+											>
+												Modal title
+											</h5>
+											<button
+												type="button"
+												class="btn-close"
+												data-coreui-dismiss="modal"
+												aria-label="Close"
+											></button>
+										</div>
+										<div class="modal-body">
+											Lorem ipsum dolor sit amet,
+											consectetur adipiscing elit. Fusce
+											faucibus sed lacus eget dictum. In
+											odio elit, rutrum sed dolor eu,
+											venenatis placerat eros. Nullam
+											eleifend cursus enim, ac aliquam
+											diam scelerisque facilisis. In
+											viverra blandit lacus eu commodo.
+											Nam condimentum vitae nulla ac
+											iaculis. Pellentesque non euismod
+											ex. Phasellus condimentum dolor eget
+											quam semper, quis egestas sapien
+											sagittis. Morbi eu diam commodo,
+											imperdiet urna a, tristique velit.
+											Vestibulum convallis dictum mauris
+											eu rutrum. Sed magna erat, auctor
+											vitae tristique vitae, bibendum ac
+											orci. Nam et lorem aliquet, tempus
+											erat nec, molestie magna. Quisque
+											quis lacinia augue, non viverra
+											tellus. Ut vulputate varius varius.
+											Quisque eget facilisis eros.
+											Curabitur gravida, nibh quis congue
+											ornare, felis sapien bibendum metus,
+											et aliquam lectus nisi posuere odio.
+											Aliquam erat volutpat. Duis id
+											aliquam risus. Curabitur sed ligula
+											ut magna lacinia consequat a ut
+											enim. Donec lorem libero, efficitur
+											non bibendum eu, rutrum nec felis.
+											Sed nec est ipsum. Ut ac tortor leo.
+											Aliquam laoreet mauris laoreet
+											accumsan gravida. Integer consequat
+											nisi nunc. Pellentesque sed velit
+											dolor. Nulla facilisi. Aenean enim
+											odio, maximus nec diam vel, eleifend
+											consectetur justo. Aliquam
+											scelerisque dui massa, eu egestas
+											felis dictum eu. Morbi ac mauris
+											neque. Duis ante justo, mattis eu
+											rhoncus quis, laoreet eget nunc.
+											Vestibulum sed lorem quis dui
+											pharetra accumsan vel sit amet nisi.
+											Phasellus congue elit ante, ut
+											tempus ante lobortis at. Ut a nulla
+											pulvinar orci iaculis pellentesque.
+											Vivamus tristique risus in tristique
+											rhoncus. Ut at ex et leo commodo
+											accumsan. Integer elementum, eros in
+											sagittis vestibulum, nunc ligula
+											vestibulum est, vitae laoreet ante
+											ex non nisi.
+										</div>
+										<div class="modal-footer">
+											<button
+												type="button"
+												class="btn btn-secondary"
+												data-coreui-dismiss="modal"
+											>
+												Close
+											</button>
+											<button
+												type="button"
+												class="btn btn-primary"
+											>
+												Save changes
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<button
+								class="btn btn-primary"
+								type="button"
+								data-coreui-toggle="offcanvas"
+								data-coreui-target="#offcanvasRight"
+								aria-controls="offcanvasRight"
+							>
+								Toggle right offcanvas (lock)
+							</button>
+
+							<div
+								class="htc-responsive offcanvas offcanvas-end shadow-lg "
+								tabindex="-1"
+								id="offcanvasRight"
+								aria-labelledby="offcanvasRightLabel"
+							>
+								<div class="offcanvas-header">
+									<h5
+										class="offcanvas-title"
+										id="offcanvasRightLabel"
+									>
+										Offcanvas right
+									</h5>
+									<button
+										type="button"
+										class="btn-close"
+										data-coreui-dismiss="offcanvas"
+										aria-label="Close"
+									></button>
+								</div>
+								<div class="offcanvas-body">...</div>
+							</div>
+						</div>
+						<div>
+							<button
+								class="btn btn-primary"
+								type="button"
+								data-coreui-toggle="offcanvas"
+								data-coreui-target="#offcanvasRight2"
+								aria-controls="offcanvasRight2"
+							>
+								Toggle right offcanvas (unlock)
+							</button>
+
+							<div
+								class="offcanvas offcanvas-end shadow-lg"
+								data-coreui-scroll="true"
+								data-coreui-backdrop="false"
+								tabindex="-1"
+								id="offcanvasRight2"
+								aria-labelledby="offcanvasRightLabel2"
+							>
+								<div class="offcanvas-header">
+									<h5
+										class="offcanvas-title"
+										id="offcanvasRightLabel2"
+									>
+										Offcanvas right
+									</h5>
+									<button
+										type="button"
+										class="btn-close"
+										data-coreui-dismiss="offcanvas"
+										aria-label="Close"
+									></button>
+								</div>
+								<div class="offcanvas-body">...</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

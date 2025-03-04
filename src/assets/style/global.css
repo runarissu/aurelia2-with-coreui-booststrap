@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+@media (min-width: 576px) {
+	.htc-responsive {
+		width: 100% !important;;
+	}
+}
+
+@media (min-width: 768px) {
+	.htc-responsive {
+		width: 100% !important;; 
+	}
+}
+
+@media (min-width: 992px) {
+	.htc-responsive {
+		width: 100% !important;;
+	}
+}
+
+@media (min-width: 1200px) {
+	.htc-responsive {
+		width: 100% !important;;
+	}
+}
+
+* {
+	--cui-primary: #a20000 !important;
+	--cui-primary-rgb: 162, 0, 0 !important;
+	--cui-primary-bg-subtle: #dc3939 !important;
+	--cui-primary-border-subtle: #dc3939 !important;
+	--cui-primary-text-emphasis: #a20000 !important;
+	--cui-input-focus-border-color: #a20000 !important;
+	--cui-form-multi-select-focus-box-shadow: 0 0 0 0.25rem
+		rgb(220, 57, 57, 0.25) !important;
+	--cui-form-multi-select-focus-border-color: #a20000 !important;
+	--cui-date-picker-focus-box-shadow: 0 0 0 0.25rem rgb(220, 57, 57, 0.25) !important;
+	--cui-date-picker-focus-border-color: #a20000 !important;
+	--cui-time-picker-focus-border-color: #a20000 !important;
+	--cui-time-picker-focus-box-shadow: 0 0 0 0.25rem rgb(220, 57, 57, 0.25) !important;
+}
+
+.form-multi-select-input-group:focus,
+.form-multi-select-input-group:has(:focus),
+.form-check-input:focus,
+.form-control:focus {
+	border-color: #a20000 !important;
+	box-shadow: 0 0 0 0.25rem rgb(220, 57, 57, 0.25) !important;
+}
+
+.btn.btn-primary {
+	background-color: #a20000 !important;
+	border-color: #a20000 !important;
+}
+
+.btn.btn-ghost-primary {
+	color: #a20000 !important;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-ghost-primary:hover {
+	background-color: #8a0000 !important;
+	border-color: #820000 !important;
+	color: #ffffff !important;
+}
+
+.btn.btn-primary:focus,
+.btn.btn-ghost-primary:focus {
+	background-color: #8a0000 !important;
+	border-color: #820000 !important;
+	color: #ffffff !important;
+}
+
+.btn.btn-primary:active,
+.btn.btn-ghost-primary:active {
+	background-color: #820000 !important;
+	border-color: #7a0000 !important;
+	color: #ffffff !important;
+}
+
+.btn.btn-primary:disabled,
+.btn.btn-ghost-primary:disabled {
+	background-color: #a20000 !important;
+	border-color: #a20000 !important;
+	color: #ffffff !important;
+}
+
+* {
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+}
+
+.htc-navbar-top {
+	background-color: #a20000;
+	height: 41px;
+}
+
+.htc-navbar-side {
+	background-color: #dc3939;
+}
+
+.htc-navbar-side .nav.flex-column a.nav-link {
+	color: white;
+}
+
+.htc-navbar-side .nav.flex-column a.nav-link {
+	color: white;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.htc-navbar-side .nav.flex-column hr {
+	color: white;
+	opacity: 0.4;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.htc-body {
+	background-color: #faf9f8;
+}
+
+.dt-input {
+	margin-right: 0.5rem;
+}
+
+div.dt-container div.dt-layout-row {
+	margin-top: 0px;
+}
+
+.no-footer tbody td {
+	border-bottom: none !important;
+}
+
+.sectionBlock {
+	background: #ffffff;
+	padding: 28px;
+	margin-bottom: 28px;
+	border-radius: 2px;
+	box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132),
+		0 0.3px 0.9px 0 rgba(0, 0, 0, 0.1);
+}
+
+.contextualMenu {
+	box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132),
+		0 0.3px 0.9px 0 rgba(0, 0, 0, 0.1);
+	z-index: 100;
+}
