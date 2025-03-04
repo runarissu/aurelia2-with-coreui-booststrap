@@ -137,6 +137,7 @@
 										>Email address</label
 									>
 									<input
+										value.bind="email"
 										type="email"
 										class="form-control"
 										id="exampleFormControlInput1"
@@ -150,6 +151,7 @@
 										>Example textarea</label
 									>
 									<textarea
+										value.bind="description"
 										class="form-control"
 										id="exampleFormControlTextarea1"
 										rows="3"
@@ -166,6 +168,7 @@
 											>https://example.com/users/</span
 										>
 										<input
+											value.bind="username"
 											type="text"
 											class="form-control"
 											id="basic-url"
@@ -176,7 +179,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="card shadow-sm">
+					<!-- <div class="card shadow-sm">
 						<div class="card-body">
 							<div class="mb-3">
 								<span class="fw-bold h5"
@@ -191,20 +194,43 @@
 									id="ms1"
 									multiple
 									data-coreui-search="global"
+									value.bind="selectedTechnologies"
 								>
-									<option value="0">Angular</option>
-									<option value="1">Bootstrap</option>
-									<option value="2">React.js</option>
-									<option value="3">Vue.js</option>
-									<optgroup label="backend">
-										<option value="4">Django</option>
-										<option value="5">Laravel</option>
-										<option value="6">Node.js</option>
-									</optgroup>
+									<option
+										repeat.for="option of technologies"
+										value.bind="option.id"
+									>
+										${option.name}
+									</option>
 								</select>
+								${selectedTechnologies}
+								<label>
+									Select products:
+									<select
+										class="form-multi-select"
+										multiple="multiple"
+										id="ms2"
+										data-coreui-search="global"
+										value.bind="selectedProducts & twoWay"
+									>
+										<option
+											repeat.for="product of products"
+											model.bind="product & twoWay"
+										>
+											${product}
+										</option>
+									</select>
+								</label>
+								Selected products: ${selectedProducts}
 							</div>
+							<button
+								class="btn btn-primary"
+								click.trigger="add()"
+							>
+								Add
+							</button>
 						</div>
-					</div>
+					</div> -->
 					<div class="card shadow-sm">
 						<div class="card-body">
 							<div class="mb-3">
@@ -216,7 +242,7 @@
 								<input
 									class="form-check-input"
 									type="checkbox"
-									value=""
+									checked.bind="isDefaultChecked"
 									id="flexCheckDefault"
 								/>
 								<label
@@ -231,27 +257,29 @@
 									class="form-check-input"
 									type="radio"
 									name="flexRadioDefault"
-									id="flexRadioDefault1"
+									model.bind="1"
+									checked.bind="selectedRadio"
 								/>
 								<label
 									class="form-check-label"
 									for="flexRadioDefault1"
 								>
-									Default radio
+									1
 								</label>
 							</div>
 							<div class="form-check">
 								<input
 									class="form-check-input"
 									type="radio"
+									model.bind="2"
 									name="flexRadioDefault"
-									id="flexRadioDefault2"
+									checked.bind="selectedRadio"
 								/>
 								<label
 									class="form-check-label"
 									for="flexRadioDefault2"
 								>
-									Default radio
+									2
 								</label>
 							</div>
 							<div class="form-check form-switch">
@@ -260,6 +288,7 @@
 									type="checkbox"
 									role="switch"
 									id="flexSwitchCheckDefault"
+									checked.bind="isSwitchChecked"
 								/>
 								<label
 									class="form-check-label"
@@ -269,7 +298,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="card shadow-sm">
+					<!-- <div class="card shadow-sm">
 						<div class="card-body">
 							<div
 								class="col-12 col-sm-11 col-md-10 col-lg-8 col-xl-6 col-xxl-4"
@@ -281,6 +310,7 @@
 								</div>
 								<label class="form-label">Date Only</label>
 								<div
+									data-coreui-date.two-way="date"
 									class="mb-3 col-5"
 									data-coreui-locale="en-US"
 									data-coreui-toggle="date-picker"
@@ -301,11 +331,14 @@
 							</div>
 							<label class="form-label">Date Range Only</label>
 							<div
+								data-coreui-start-date.two-way="dateStart"
+								data-coreui-end-date.two-way="dateEnd"
 								class="mb-3 col-8"
 								data-coreui-locale="en-US"
 								data-coreui-toggle="date-range-picker"
 								data-coreui-footer="true"
 							></div>
+							${dateStart} - ${dateEnd}
 							<label class="form-label"
 								>Date Range Month Only</label
 							>
@@ -331,246 +364,270 @@
 								data-coreui-toggle="time-picker"
 							></div>
 						</div>
-					</div>
-				</div>
-				<div class="card shadow-sm mb-5">
-					<div class="card-body">
-						<div class="mb-3">
-							<span class="fw-bold h5">Modal, Offcanvas</span>
-						</div>
-						<div class="mb-3">
-							<!-- Button trigger modal -->
-							<button
-								type="button"
-								class="btn btn-primary"
-								data-coreui-toggle="modal"
-								data-coreui-target="#exampleModal"
-							>
-								Top Modal
-							</button>
-
-							<!-- Modal -->
-							<div
-								class="modal fade"
-								id="exampleModal"
-								tabindex="-1"
-								aria-labelledby="exampleModalLabel"
-								aria-hidden="true"
-							>
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5
-												class="modal-title"
-												id="exampleModalLabel"
-											>
-												Modal title
-											</h5>
-											<button
-												type="button"
-												class="btn-close"
-												data-coreui-dismiss="modal"
-												aria-label="Close"
-											></button>
-										</div>
-										<div class="modal-body">...</div>
-										<div class="modal-footer">
-											<button
-												type="button"
-												class="btn btn-secondary"
-												data-coreui-dismiss="modal"
-											>
-												Close
-											</button>
-											<button
-												type="button"
-												class="btn btn-primary"
-											>
-												Save changes
-											</button>
-										</div>
-									</div>
-								</div>
+					</div> -->
+					<div class="card shadow-sm mb-5">
+						<div class="card-body">
+							<div class="mb-3">
+								<span class="fw-bold h5">Modal, Offcanvas</span>
 							</div>
-						</div>
-						<div class="mb-3">
-							<!-- Button trigger modal -->
-							<button
-								type="button"
-								class="btn btn-primary"
-								data-coreui-toggle="modal"
-								data-coreui-target="#exampleModal2"
-							>
-								Vertical Center, Scrollable modal
-							</button>
-
-							<!-- Modal -->
-							<div
-								class="modal fade"
-								id="exampleModal2"
-								tabindex="-1"
-								aria-labelledby="exampleModalLabel2"
-								aria-hidden="true"
-							>
-								<div
-									class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+							<div class="mb-3">
+								<!-- Button trigger modal -->
+								<button
+									type="button"
+									class="btn btn-primary"
+									data-coreui-toggle="modal"
+									data-coreui-target="#exampleModal"
 								>
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5
-												class="modal-title"
-												id="exampleModalLabel2"
-											>
-												Modal title
-											</h5>
-											<button
-												type="button"
-												class="btn-close"
-												data-coreui-dismiss="modal"
-												aria-label="Close"
-											></button>
-										</div>
-										<div class="modal-body">
-											Lorem ipsum dolor sit amet,
-											consectetur adipiscing elit. Fusce
-											faucibus sed lacus eget dictum. In
-											odio elit, rutrum sed dolor eu,
-											venenatis placerat eros. Nullam
-											eleifend cursus enim, ac aliquam
-											diam scelerisque facilisis. In
-											viverra blandit lacus eu commodo.
-											Nam condimentum vitae nulla ac
-											iaculis. Pellentesque non euismod
-											ex. Phasellus condimentum dolor eget
-											quam semper, quis egestas sapien
-											sagittis. Morbi eu diam commodo,
-											imperdiet urna a, tristique velit.
-											Vestibulum convallis dictum mauris
-											eu rutrum. Sed magna erat, auctor
-											vitae tristique vitae, bibendum ac
-											orci. Nam et lorem aliquet, tempus
-											erat nec, molestie magna. Quisque
-											quis lacinia augue, non viverra
-											tellus. Ut vulputate varius varius.
-											Quisque eget facilisis eros.
-											Curabitur gravida, nibh quis congue
-											ornare, felis sapien bibendum metus,
-											et aliquam lectus nisi posuere odio.
-											Aliquam erat volutpat. Duis id
-											aliquam risus. Curabitur sed ligula
-											ut magna lacinia consequat a ut
-											enim. Donec lorem libero, efficitur
-											non bibendum eu, rutrum nec felis.
-											Sed nec est ipsum. Ut ac tortor leo.
-											Aliquam laoreet mauris laoreet
-											accumsan gravida. Integer consequat
-											nisi nunc. Pellentesque sed velit
-											dolor. Nulla facilisi. Aenean enim
-											odio, maximus nec diam vel, eleifend
-											consectetur justo. Aliquam
-											scelerisque dui massa, eu egestas
-											felis dictum eu. Morbi ac mauris
-											neque. Duis ante justo, mattis eu
-											rhoncus quis, laoreet eget nunc.
-											Vestibulum sed lorem quis dui
-											pharetra accumsan vel sit amet nisi.
-											Phasellus congue elit ante, ut
-											tempus ante lobortis at. Ut a nulla
-											pulvinar orci iaculis pellentesque.
-											Vivamus tristique risus in tristique
-											rhoncus. Ut at ex et leo commodo
-											accumsan. Integer elementum, eros in
-											sagittis vestibulum, nunc ligula
-											vestibulum est, vitae laoreet ante
-											ex non nisi.
-										</div>
-										<div class="modal-footer">
-											<button
-												type="button"
-												class="btn btn-secondary"
-												data-coreui-dismiss="modal"
-											>
-												Close
-											</button>
-											<button
-												type="button"
-												class="btn btn-primary"
-											>
-												Save changes
-											</button>
+									Top Modal
+								</button>
+
+								<!-- Modal -->
+								<div
+									class="modal fade"
+									id="exampleModal"
+									tabindex="-1"
+									aria-labelledby="exampleModalLabel"
+									aria-hidden="true"
+								>
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5
+													class="modal-title"
+													id="exampleModalLabel"
+												>
+													Modal title
+												</h5>
+												<button
+													type="button"
+													class="btn-close"
+													data-coreui-dismiss="modal"
+													aria-label="Close"
+												></button>
+											</div>
+											<div class="modal-body">...</div>
+											<div class="modal-footer">
+												<button
+													type="button"
+													class="btn btn-secondary"
+													data-coreui-dismiss="modal"
+												>
+													Close
+												</button>
+												<button
+													type="button"
+													class="btn btn-primary"
+												>
+													Save changes
+												</button>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="mb-3">
-							<button
-								class="btn btn-primary"
-								type="button"
-								data-coreui-toggle="offcanvas"
-								data-coreui-target="#offcanvasRight"
-								aria-controls="offcanvasRight"
-							>
-								Toggle right offcanvas (lock)
-							</button>
+							<div class="mb-3">
+								<!-- Button trigger modal -->
+								<button
+									type="button"
+									class="btn btn-primary"
+									data-coreui-toggle="modal"
+									data-coreui-target="#exampleModal2"
+								>
+									Vertical Center, Scrollable modal
+								</button>
 
-							<div
-								class="htc-responsive offcanvas offcanvas-end shadow-lg"
-								tabindex="-1"
-								id="offcanvasRight"
-								aria-labelledby="offcanvasRightLabel"
-							>
-								<div class="offcanvas-header">
-									<h5
-										class="offcanvas-title"
-										id="offcanvasRightLabel"
+								<!-- Modal -->
+								<div
+									class="modal fade"
+									id="exampleModal2"
+									tabindex="-1"
+									aria-labelledby="exampleModalLabel2"
+									aria-hidden="true"
+								>
+									<div
+										class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
 									>
-										Offcanvas right
-									</h5>
-									<button
-										type="button"
-										class="btn-close"
-										data-coreui-dismiss="offcanvas"
-										aria-label="Close"
-									></button>
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5
+													class="modal-title"
+													id="exampleModalLabel2"
+												>
+													Modal title
+												</h5>
+												<button
+													type="button"
+													class="btn-close"
+													data-coreui-dismiss="modal"
+													aria-label="Close"
+												></button>
+											</div>
+											<div class="modal-body">
+												Lorem ipsum dolor sit amet,
+												consectetur adipiscing elit.
+												Fusce faucibus sed lacus eget
+												dictum. In odio elit, rutrum sed
+												dolor eu, venenatis placerat
+												eros. Nullam eleifend cursus
+												enim, ac aliquam diam
+												scelerisque facilisis. In
+												viverra blandit lacus eu
+												commodo. Nam condimentum vitae
+												nulla ac iaculis. Pellentesque
+												non euismod ex. Phasellus
+												condimentum dolor eget quam
+												semper, quis egestas sapien
+												sagittis. Morbi eu diam commodo,
+												imperdiet urna a, tristique
+												velit. Vestibulum convallis
+												dictum mauris eu rutrum. Sed
+												magna erat, auctor vitae
+												tristique vitae, bibendum ac
+												orci. Nam et lorem aliquet,
+												tempus erat nec, molestie magna.
+												Quisque quis lacinia augue, non
+												viverra tellus. Ut vulputate
+												varius varius. Quisque eget
+												facilisis eros. Curabitur
+												gravida, nibh quis congue
+												ornare, felis sapien bibendum
+												metus, et aliquam lectus nisi
+												posuere odio. Aliquam erat
+												volutpat. Duis id aliquam risus.
+												Curabitur sed ligula ut magna
+												lacinia consequat a ut enim.
+												Donec lorem libero, efficitur
+												non bibendum eu, rutrum nec
+												felis. Sed nec est ipsum. Ut ac
+												tortor leo. Aliquam laoreet
+												mauris laoreet accumsan gravida.
+												Integer consequat nisi nunc.
+												Pellentesque sed velit dolor.
+												Nulla facilisi. Aenean enim
+												odio, maximus nec diam vel,
+												eleifend consectetur justo.
+												Aliquam scelerisque dui massa,
+												eu egestas felis dictum eu.
+												Morbi ac mauris neque. Duis ante
+												justo, mattis eu rhoncus quis,
+												laoreet eget nunc. Vestibulum
+												sed lorem quis dui pharetra
+												accumsan vel sit amet nisi.
+												Phasellus congue elit ante, ut
+												tempus ante lobortis at. Ut a
+												nulla pulvinar orci iaculis
+												pellentesque. Vivamus tristique
+												risus in tristique rhoncus. Ut
+												at ex et leo commodo accumsan.
+												Integer elementum, eros in
+												sagittis vestibulum, nunc ligula
+												vestibulum est, vitae laoreet
+												ante ex non nisi.
+											</div>
+											<div class="modal-footer">
+												<button
+													type="button"
+													class="btn btn-secondary"
+													data-coreui-dismiss="modal"
+												>
+													Close
+												</button>
+												<button
+													type="button"
+													class="btn btn-primary"
+												>
+													Save changes
+												</button>
+											</div>
+										</div>
+									</div>
 								</div>
-								<div class="offcanvas-body">...</div>
 							</div>
-						</div>
-						<div>
-							<button
-								class="btn btn-primary"
-								type="button"
-								data-coreui-toggle="offcanvas"
-								data-coreui-target="#offcanvasRight2"
-								aria-controls="offcanvasRight2"
-							>
-								Toggle right offcanvas (unlock)
-							</button>
+							<div class="mb-3">
+								<button
+									class="btn btn-primary"
+									type="button"
+									data-coreui-toggle="offcanvas"
+									data-coreui-target="#offcanvasRight"
+									aria-controls="offcanvasRight"
+								>
+									Toggle right offcanvas (lock)
+								</button>
 
-							<div
-								class="htc-responsive offcanvas offcanvas-end shadow-lg"
-								data-coreui-scroll="true"
-								data-coreui-backdrop="false"
-								tabindex="-1"
-								id="offcanvasRight2"
-								aria-labelledby="offcanvasRightLabel2"
-							>
-								<div class="offcanvas-header">
-									<h5
-										class="offcanvas-title"
-										id="offcanvasRightLabel2"
-									>
-										Offcanvas right
-									</h5>
-									<button
-										type="button"
-										class="btn-close"
-										data-coreui-dismiss="offcanvas"
-										aria-label="Close"
-									></button>
+								<div
+									class="htc-responsive offcanvas offcanvas-end shadow-lg"
+									tabindex="-1"
+									id="offcanvasRight"
+									aria-labelledby="offcanvasRightLabel"
+								>
+									<div class="offcanvas-header">
+										<h5
+											class="offcanvas-title"
+											id="offcanvasRightLabel"
+										>
+											Offcanvas right
+										</h5>
+										<button
+											type="button"
+											class="btn-close"
+											data-coreui-dismiss="offcanvas"
+											aria-label="Close"
+										></button>
+									</div>
+									<div class="offcanvas-body">
+										Email Address: ${email}<br />
+										Description: ${description}<br />
+										Username: ${username}<br />
+										Is Default Checked:
+										${isDefaultChecked}<br />
+										Is Switch Checked: ${isSwitchChecked}<br />
+										Selected Radio: ${selectedRadio}<br />
+									</div>
 								</div>
-								<div class="offcanvas-body">...</div>
+							</div>
+							<div>
+								<button
+									class="btn btn-primary"
+									type="button"
+									data-coreui-toggle="offcanvas"
+									data-coreui-target="#offcanvasRight2"
+									aria-controls="offcanvasRight2"
+								>
+									Toggle right offcanvas (unlock)
+								</button>
+
+								<div
+									class="htc-responsive offcanvas offcanvas-end shadow-lg"
+									data-coreui-scroll="true"
+									data-coreui-backdrop="false"
+									tabindex="-1"
+									id="offcanvasRight2"
+									aria-labelledby="offcanvasRightLabel2"
+								>
+									<div class="offcanvas-header">
+										<h5
+											class="offcanvas-title"
+											id="offcanvasRightLabel2"
+										>
+											Offcanvas right
+										</h5>
+										<button
+											type="button"
+											class="btn-close"
+											data-coreui-dismiss="offcanvas"
+											aria-label="Close"
+										></button>
+									</div>
+									<div class="offcanvas-body">
+										Email Address: ${email}<br />
+										Description: ${description}<br />
+										Username: ${username}<br />
+										Is Default Checked:
+										${isDefaultChecked}<br />
+										Is Switch Checked: ${isSwitchChecked}<br />
+										Selected Radio: ${selectedRadio}<br />
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
